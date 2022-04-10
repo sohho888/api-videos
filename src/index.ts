@@ -9,7 +9,7 @@ app.use(corsMiddleware)
 const jsonBodyMiddleware = bodyParser.json()
 app.use(jsonBodyMiddleware)
 
-const port = 5000
+const port = process.env.PORT || 5000
 
 // type ErrorMessageType = {
 //     message: string | null
@@ -36,7 +36,9 @@ const port = 5000
 //     { id: 2, name: "Sara", youtubeUrl: "https://www.youtube.com/watch?v=WhcbmF" }
 // ]
 
-
+app.get('/', (req: Request, res: Response) => {
+    res.send("Hello Brather")
+})
 
 app.get('/videos', (req: Request, res: Response) => {
     res.send(videos)
